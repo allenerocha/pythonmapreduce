@@ -5,6 +5,9 @@ pythonmapreduce
 .. image:: https://img.shields.io/travis/allenerocha/pythonmapreduce
     :alt: Travis (.org)
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :alt: Code style: black https://github.com/psf/black
+
 .. image:: https://img.shields.io/codecov/c/github/allenerocha/pythonmapreduce
     :alt: Codecov
 
