@@ -2,7 +2,11 @@
 pythonmapreduce
 ===============
 
+.. image:: https://img.shields.io/travis/allenerocha/pythonmapreduce
+    :alt: Travis (.org)
 
+.. image:: https://img.shields.io/codecov/c/github/allenerocha/pythonmapreduce
+    :alt: Codecov
 
 .. image:: https://img.shields.io/badge/license-AGPLv3-green
      :alt: License:AGPLv3

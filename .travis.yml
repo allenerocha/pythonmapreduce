@@ -6,6 +6,8 @@ python:
   - 3.7
   - 3.6
   - 3.5
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox-travis
