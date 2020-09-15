@@ -1,19 +1,13 @@
 """Console script for pythonmapreduce."""
 import argparse
-import sys
 
 
-def main():
+def parse():
     """Console script for pythonmapreduce."""
     parser = argparse.ArgumentParser()
-    parser.add_argument('_', nargs='*')
+    parser.add_argument("_", nargs="*")
     args = parser.parse_args()
 
     print("Arguments: " + str(args._))
-    print("Replace this message by putting your code into "
-          "pythonmapreduce.cli.main")
+    print("Replace this message by putting your code into " "pythonmapreduce.cli.main")
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
