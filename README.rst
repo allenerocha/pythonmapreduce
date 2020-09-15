@@ -8,8 +8,9 @@ pythonmapreduce
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :alt: Code style: black https://github.com/psf/black
 
-.. image:: https://img.shields.io/codecov/c/github/allenerocha/pythonmapreduce
+.. image:: https://codecov.io/gh/allenerocha/pythonmapreduce/branch/master/graph/badge.svg
     :alt: Codecov
+    :target: https://codecov.io/gh/allenerocha/pythonmapreduce
 
 .. image:: https://img.shields.io/badge/license-AGPLv3-green
      :alt: License:AGPLv3
