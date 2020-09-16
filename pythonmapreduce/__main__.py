@@ -9,9 +9,11 @@ Invoke as `pythonmapreduce' or python -m pythonmapreduce.
 def main():
     from .cli import parse
     from .pythonmapreduce import MapReduce
+    from sys import stdin
 
     input_filename, output_filename, formats = parse()
-    MapReduce(input_filename, output_filename, formats)
+    mapreduce = MapReduce(input_filename, output_filename, formats)
+    mapreduce.map({})
 
 
 if __name__ == "__main__":
