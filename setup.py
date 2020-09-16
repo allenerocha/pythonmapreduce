@@ -34,7 +34,7 @@ setup(
     description=pythonmapreduce.__description__,
     entry_points={
         "console_scripts": [
-            "pythonmapreduce=pythonmapreduce.cli:main",
+            "pythonmapreduce=pythonmapreduce.__main__:main",
         ],
     },
     install_requires=requirements,
@@ -47,9 +47,9 @@ setup(
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/allenerocha/pythonmapreduce",
+    url=pythonmapreduce.__url__,
     project_urls={
-        "Source Code": "https://github.com/allenerocha/pythonmapreduce",
+        "Source Code": pythonmapreduce.__url__,
     },
     version=pythonmapreduce.__version__,
     zip_safe=False,

@@ -3,6 +3,7 @@
 __title__ = "pythonmapreduce"
 __description__ = """Python implementation of the MapReduce concept."""
 __author__ = """Allen E Rocha"""
-__email__ = 'allenerocha@pm.me'
-__version__ = '0.0.1'
+__email__ = "allenerocha@pm.me"
+__version__ = "0.0.1"
 __licence__ = "AGPLv3.0"
+__url__ = "https://github.com/allenerocha/pythonmapreduce"
