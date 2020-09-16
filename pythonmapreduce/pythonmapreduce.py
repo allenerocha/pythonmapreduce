@@ -20,24 +20,24 @@ class MapReduce:
         if len(self.input_filenames) > 0:
             for path_ in self.input_filenames:
                 if path.isfile(path_):
-                    self.data[path_] = [
-                        line.strip()
-                        for line in open(path_, "r", encoding="ISO-8859-1").readlines()
-                        if line.strip() != ""
-                    ]
+                    with open(path_, "r", encoding="ISO-8859-1") as in_file:
+                        self.data[path_] = [
+                            line.strip()
+                            for line in in_file.readlines()
+                            if line.strip() != ""
+                        ]
                 else:
                     for file in [
                         path.join(path_, f)
                         for f in listdir(path_)
                         if path.isfile(path.join(path_, f))
                     ]:
-                        self.data[file] = [
-                            line.strip()
-                            for line in open(
-                                file, "r", encoding="ISO-8859-1"
-                            ).readlines()
-                            if line.strip() != ""
-                        ]
+                        with open(file, "r", encoding="ISO-8859-1") as in_file:
+                            self.data[file] = [
+                                line.strip()
+                                for line in in_file.readlines()
+                                if line.strip() != ""
+                            ]
 
         if len(stdin_lines) > 0:
             self.data["stdin"] = [
