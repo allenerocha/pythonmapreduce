@@ -1,5 +1,6 @@
 """Main module."""
-from typing import List, Dict
+from os import path, listdir
+from typing import List
 
 
 class MapReduce:
@@ -10,14 +11,33 @@ class MapReduce:
         self.data = dict()
 
     def map(self, stdin_lines: List[str]):
-        """Split the any specified files from the input_filenames and add to the dataset."""
+        """
+        Split the any specified files from the input_filenames and add to the dataset. This only cleans the `\n`
+        and empty character from the data.
+
+        :param stdin_lines: standard input from the sys.stdin command.
+        """
         if len(self.input_filenames) > 0:
-            for file in self.input_filenames:
-                self.data[file] = [
-                    line.strip()
-                    for line in open(file, "r", encoding="utf8").readlines()
-                    if line.strip() != ""
-                ]
+            for path_ in self.input_filenames:
+                if path.isfile(path_):
+                    self.data[path_] = [
+                        line.strip()
+                        for line in open(path_, "r", encoding="ISO-8859-1").readlines()
+                        if line.strip() != ""
+                    ]
+                else:
+                    for file in [
+                        path.join(path_, f)
+                        for f in listdir(path_)
+                        if path.isfile(path.join(path_, f))
+                    ]:
+                        self.data[file] = [
+                            line.strip()
+                            for line in open(
+                                file, "r", encoding="ISO-8859-1"
+                            ).readlines()
+                            if line.strip() != ""
+                        ]
 
         if len(stdin_lines) > 0:
             self.data["stdin"] = [

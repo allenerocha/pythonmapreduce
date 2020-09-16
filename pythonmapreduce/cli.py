@@ -15,7 +15,7 @@ def parse():
         "--input",
         type=str,
         nargs="*",
-        help="Used to specify input file(s) to read (optional)",
+        help="Used to specify input file(s) or directories to read (optional)",
     )
     parser.add_argument(
         "-o",
@@ -36,5 +36,4 @@ def parse():
     args = parser.parse_args()
     if args.input is None:
         return list(), str(args.output), list(args.formats)
-
     return list(args.input), str(args.output), list(args.formats)
