@@ -14,7 +14,8 @@ def parse():
         "-i",
         "--input",
         type=str,
-        help="Used to specify an input file to read (optional)",
+        nargs="*",
+        help="Used to specify input file(s) to read (optional)",
     )
     parser.add_argument(
         "-o",
@@ -33,4 +34,7 @@ def parse():
         "format. View https://github.com/allenerocha/pythonmapreduce for more available formats.]",
     )
     args = parser.parse_args()
-    return str(args.input), str(args.output), list(args.formats)
+    if args.input is None:
+        return list(), str(args.output), list(args.formats)
+
+    return list(args.input), str(args.output), list(args.formats)
