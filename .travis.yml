@@ -13,7 +13,7 @@ after_success:
 install: pip install -U tox-travis coverage
 
 # Command to run tests, e.g. python setup.py test
-script: tox && coverage run --omit="venv/*","docs/*",".github/*" -m pythonmapreduce -i data
+script: tox && coverage run --omit="venv/*","docs/*",".github/*" -m pythonmapreduce -i data -t 2
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
