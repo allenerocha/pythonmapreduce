@@ -12,7 +12,7 @@ from .utils.seive import punctuation_split
 
 class MapReduce:
     def __init__(
-        self, input_filename: list, output_filename: str, formats: List[str], threads
+        self, input_filename: list, output_filename: str, formats: List[str], threads=1
     ):
         self.input_filenames = input_filename
         self.output_filename = output_filename
