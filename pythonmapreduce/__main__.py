@@ -11,7 +11,12 @@ def main():
     from .pythonmapreduce import MapReduce
 
     input_filename, output_filename, formats, threads = parse()
-    mapreduce = MapReduce(input_filename, output_filename, formats, threads)
+    mapreduce = MapReduce(
+        input_filename=input_filename,
+        output_filename=output_filename,
+        formats=formats,
+        threads=threads,
+    )
     mapreduce.in_parse([])
 
 

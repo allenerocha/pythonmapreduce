@@ -12,7 +12,11 @@ from .utils.seive import punctuation_split
 
 class MapReduce:
     def __init__(
-        self, input_filename: list, output_filename: str, formats: List[str], threads=1
+        self,
+        input_filename: List[str],
+        formats: List[str],
+        threads,
+        output_filename="output",
     ):
         self.input_filenames = input_filename
         self.output_filename = output_filename
@@ -28,6 +32,9 @@ class MapReduce:
 
         :param stdin_lines: standard input from the sys.stdin command.
         """
+        if len(self.input_filenames) == 0 and len(stdin_lines) == 0:
+            print("No data to parse.")
+
         if len(self.input_filenames) > 0:
             for path_ in self.input_filenames:
                 if path.isfile(path_):
@@ -83,11 +90,14 @@ class MapReduce:
             self.data.append(
                 {
                     "title": title,
-                    "meta": {
+                    "stats": {
                         "lines": len(contents),
                         "characters": char_count,
                         "median characters per line": median,
                         "average characters per line": char_count / len(contents),
+                        "delta": 100.0
+                        * abs(median - (char_count / len(contents)))
+                        / (median + (char_count / len(contents)) / 2),
                     },
                     "contents": contents,
                 }
