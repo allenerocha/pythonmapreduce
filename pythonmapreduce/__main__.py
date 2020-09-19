@@ -10,9 +10,9 @@ def main():
     from .cli import parse
     from .pythonmapreduce import MapReduce
 
-    input_filename, output_filename, formats = parse()
-    mapreduce = MapReduce(input_filename, output_filename, formats)
-    mapreduce.map([])
+    input_filename, output_filename, formats, threads = parse()
+    mapreduce = MapReduce(input_filename, output_filename, formats, threads)
+    mapreduce.in_parse([])
 
 
 if __name__ == "__main__":

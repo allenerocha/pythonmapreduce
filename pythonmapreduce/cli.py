@@ -33,7 +33,14 @@ def parse():
         help="Format(s) for the out file (optional, will generate a file for each given format) [Default: JSON "
         "format. View https://github.com/allenerocha/pythonmapreduce for more available formats.]",
     )
+    parser.add_argument(
+        "-t",
+        "--threads",
+        type=int,
+        default=1,
+        help="Number of  threads to run this application with (optional).",
+    )
     args = parser.parse_args()
     if args.input is None:
-        return list(), str(args.output), list(args.formats)
-    return list(args.input), str(args.output), list(args.formats)
+        return list(), str(args.output), list(args.formats), int(args.threads)
+    return list(args.input), str(args.output), list(args.formats), int(args.threads)
