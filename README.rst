@@ -20,25 +20,25 @@ Python implementation of the WordCount MapReduce concept using books sourced fro
 
 .. image:: sampleoutputs/average-chars.svg
     :alt: Average characters per line (c/l)
-    :target: https://travis-ci.org/allenerocha/pythonmapreduce/sampleoutputs/average-chars.svg
+    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/average-chars.svg
     :height: 100px
     :width: 200 px
 
 .. image:: sampleoutputs/median-chars.svg
     :alt: Median c/l
-    :target: https://travis-ci.org/allenerocha/pythonmapreduce/sampleoutputs/median-chars.svg
+    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/median-chars.svg
     :height: 100px
     :width: 200 px
 
 .. image:: sampleoutputs/average-words.svg
     :alt: Average words per line (w/l)
-    :target: https://travis-ci.org/allenerocha/pythonmapreduce/sampleoutputs/average-words.svg
+    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/average-words.svg
     :height: 100px
     :width: 200 px
 
 .. image:: sampleoutputs/median-words.svg
     :alt: Average w/l
-    :target: https://travis-ci.org/allenerocha/pythonmapreduce/sampleoutputs/median-words.svg
+    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/median-words.svg
     :height: 100px
     :width: 200 px
 
