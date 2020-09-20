@@ -108,8 +108,6 @@ class MapReduce:
             word_sum = 0
             contents = list()
             char_count = 0
-            # TODO get average word-per-line
-            # TODO get median word-per-line
             for line in in_file.readlines():
                 if line.strip() != "":
                     char_count += len(line.strip())
