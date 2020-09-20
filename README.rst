@@ -15,32 +15,35 @@ pythonmapreduce
      :alt: License:AGPLv3
     :target: https://www.gnu.org/licenses/agpl-3.0.en.html
 
-
 Python implementation of the WordCount MapReduce concept using books sourced from https://www.gutenberg.org/
 
-.. image:: sampleoutputs/average-chars.svg
-    :alt: Average characters per line (c/l)
-    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/average-chars.svg
-    :height: 100px
-    :width: 200 px
+Sample outputs:
+---------------
+Using the data sets in the ./data/ directory, a static analysis is done to calculate the average and median character counts per line (c/l) and the average and median word counts per line (w/l).
 
-.. image:: sampleoutputs/median-chars.svg
+.. image:: https://raw.githubusercontent.com/allenerocha/pythonmapreduce/master/sampleoutputs/average-chars.svg
+    :alt: Average c/l
+    :target: https://github.com/allenerocha/pythonmapreduce/blob/master/sampleoutputs/average-chars.svg
+    :width: 100%
+    :align: center
+
+.. image:: https://raw.githubusercontent.com/allenerocha/pythonmapreduce/master/sampleoutputs/median-chars.svg
     :alt: Median c/l
-    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/median-chars.svg
-    :height: 100px
-    :width: 200 px
+    :target: https://github.com/allenerocha/pythonmapreduce/blob/master/sampleoutputs/median-chars.svg
+    :width: 100%
+    :align: center
 
-.. image:: sampleoutputs/average-words.svg
-    :alt: Average words per line (w/l)
-    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/average-words.svg
-    :height: 100px
-    :width: 200 px
-
-.. image:: sampleoutputs/median-words.svg
+.. image:: https://raw.githubusercontent.com/allenerocha/pythonmapreduce/master/sampleoutputs/average-words.svg
     :alt: Average w/l
-    :target: https://github.com/allenerocha/pythonmapreduce/sampleoutputs/median-words.svg
-    :height: 100px
-    :width: 200 px
+    :target: https://github.com/allenerocha/pythonmapreduce/blob/master/sampleoutputs/average-words.svg
+    :width: 100%
+    :align: center
+
+.. image:: https://raw.githubusercontent.com/allenerocha/pythonmapreduce/master/sampleoutputs/median-words.svg
+    :alt: Average w/l
+    :target: https://github.com/allenerocha/pythonmapreduce/blob/master/sampleoutputs/median-words.svg
+    :width: 100%
+    :align: center
 
 TODO
 --------
