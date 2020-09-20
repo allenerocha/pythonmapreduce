@@ -28,8 +28,8 @@ class TestPythonmapreduce(unittest.TestCase):
             "",
             None,
         )
-        mapreduce.map(list())
-        self.assertEqual(1, len(mapreduce.data))
+        mapreduce.in_parse(list())
+        self.assertEqual(69.0, mapreduce.data)
 
     def test_map_dir(self):
         """Test reading all 18 files in ../data/*."""

@@ -7,7 +7,8 @@ from pathlib import Path
 from typing import List
 
 from .utils import median_management
-from .utils.seive import punctuation_split
+from .utils.analyze import Scatter
+from .utils.seive import punctuation_split, extra_spaces
 
 
 class MapReduce:
@@ -24,6 +25,10 @@ class MapReduce:
         self.threads = threads
         self.data = list()
         self.stdin_lines = list()
+        self.median_char_scatter = Scatter(None)
+        self.median_word_scatter = Scatter(None)
+        self.average_char_scatter = Scatter(None)
+        self.average_word_scatter = Scatter(None)
 
     def in_parse(self, stdin_lines: List[str]):
         """
@@ -67,12 +72,40 @@ class MapReduce:
                     json.dump(data, dumped, indent=2)
 
             executor.map(dump, self.data)
+        y_axis = "Total lines"
+        self.median_char_scatter.plot(
+            "Median characters per line vs Total lines",
+            "Median characters per line",
+            y_axis,
+            "median-chars",
+        )
+        self.median_word_scatter.plot(
+            "Median words per line vs Total lines",
+            "Median words per line",
+            y_axis,
+            "median-words",
+        )
+        self.average_char_scatter.plot(
+            "Average characters per line vs Total lines",
+            "Average characters per line",
+            y_axis,
+            "average-chars",
+        )
+        self.average_word_scatter.plot(
+            "Average words per line vs Total lines",
+            "Average words per line",
+            y_axis,
+            "average-words",
+        )
 
     def gen_dict(self, file):
         with open(file, "r", encoding="ISO-8859-1") as in_file:
             title = os.path.basename(file).split(".")[0].replace("-", " ")
-            min_heap = list()
-            max_heap = list()
+            char_min_heap = list()
+            char_max_heap = list()
+            word_min_heap = list()
+            word_max_heap = list()
+            word_sum = 0
             contents = list()
             char_count = 0
             # TODO get average word-per-line
@@ -80,12 +113,28 @@ class MapReduce:
             for line in in_file.readlines():
                 if line.strip() != "":
                     char_count += len(line.strip())
-                    max_heap, min_heap = median_management.push(
-                        max_heap, min_heap, len(line.strip())
+                    char_max_heap, char_min_heap = median_management.push(
+                        char_max_heap, char_min_heap, len(line.strip())
                     )
+                    word_max_heap, word_min_heap = median_management.push(
+                        word_max_heap,
+                        word_min_heap,
+                        len(extra_spaces(line.strip()).split(" ")),
+                    )
+                    word_sum += len(extra_spaces(line.strip()).split(" "))
                     contents.append(line.strip())
 
-            median = median_management.median(max_heap, min_heap)
+            char_median = median_management.median(char_max_heap, char_min_heap)
+            word_median = median_management.median(word_max_heap, word_min_heap)
+
+            self.median_char_scatter.append(title, [char_median, len(contents)])
+            self.median_word_scatter.append(title, [word_median, len(contents)])
+            self.average_char_scatter.append(
+                title, [char_count / len(contents), len(contents)]
+            )
+            self.average_word_scatter.append(
+                title, [word_sum / len(contents), len(contents)]
+            )
 
             self.data.append(
                 {
@@ -93,11 +142,13 @@ class MapReduce:
                     "stats": {
                         "lines": len(contents),
                         "characters": char_count,
-                        "median characters per line": median,
-                        "average characters per line": char_count / len(contents),
+                        "median c/l": char_median,
+                        "average c/l": char_count / len(contents),
+                        "median w/l": word_median,
+                        "average w/l": word_sum / len(contents),
                         "delta": 100.0
-                        * abs(median - (char_count / len(contents)))
-                        / (median + (char_count / len(contents)) / 2),
+                        * abs(char_median - (char_count / len(contents)))
+                        / (char_median + (char_count / len(contents)) / 2),
                     },
                     "contents": contents,
                 }
