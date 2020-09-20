@@ -1,6 +1,5 @@
-===============
 pythonmapreduce
-===============
+###############
 
 .. image:: https://img.shields.io/travis/allenerocha/pythonmapreduce
     :alt: Travis (.org)
@@ -18,7 +17,7 @@ pythonmapreduce
 Python implementation of the WordCount MapReduce concept using books sourced from https://www.gutenberg.org/
 
 Sample outputs:
----------------
+===============
 Using the data sets in the ./data/ directory, a static analysis is done to calculate the average and median character counts per line (c/l) and the average and median word counts per line (w/l).
 
 .. image:: https://raw.githubusercontent.com/allenerocha/pythonmapreduce/master/sampleoutputs/average-chars.svg
@@ -46,7 +45,7 @@ Using the data sets in the ./data/ directory, a static analysis is done to calcu
     :align: center
 
 TODO
---------
+====
 Features to be implemented:
 
 * Mapping standard input.
