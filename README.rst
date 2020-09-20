@@ -22,12 +22,11 @@ This application currently does:
 
 * Read input files or directories.
 * Parse the given file(s).
-    * Filter out all multiple spaces.
-    * Remove all punctuation.
-* Statistical analyses.
-    * Average characters and words per line.
-    * Median characters and words per line.
-* Scatter plots of the statistical analyses.
+* Filtering out all multiple spaces.
+* Removal of all punctuation.
+* A statistical analysis of the average characters and words per line.
+* A statistical analysis of the median characters and words per line.
+* Scatter plot generation of the statistical analyses.
 
 
 Sample outputs:
