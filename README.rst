@@ -14,7 +14,21 @@ pythonmapreduce
      :alt: License:AGPLv3
     :target: https://www.gnu.org/licenses/agpl-3.0.en.html
 
-Python implementation of the WordCount MapReduce concept using books sourced from https://www.gutenberg.org/
+Python implementation of the MapReduce concept using books sourced from https://www.gutenberg.org/
+
+Features
+========
+This application currently does:
+
+* Read input files or directories.
+* Parse the given file(s).
+    * Filter out all multiple spaces.
+    * Remove all punctuation.
+* Statistical analyses.
+    * Average characters and words per line.
+    * Median characters and words per line.
+* Scatter plots of the statistical analyses.
+
 
 Sample outputs:
 ===============
